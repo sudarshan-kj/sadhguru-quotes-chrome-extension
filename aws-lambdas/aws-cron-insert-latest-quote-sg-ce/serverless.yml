@@ -1,0 +1,19 @@
+org: kjsudi
+app: aws-cron-insert-latest-quote-sg-ce
+service: aws-cron-insert-latest-quote-sg-ce
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: ap-south-1
+  lambdaHashingVersion: 20201221
+
+functions:
+  cronHandler:
+    handler: handler.run
+    events:
+      # Invoke Lambda function every day at 2:57AM UTC
+      - schedule: cron(58 2 * * ? *)

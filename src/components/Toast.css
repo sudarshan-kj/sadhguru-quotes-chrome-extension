@@ -1,0 +1,24 @@
+.Toastify__toast {
+  border-radius: 4px;
+  background-color: rgb(138, 70, 6);
+}
+
+.Toastify__toast-body {
+  flex: 1;
+  text-align: center;
+  font-size: calc(8px + 1vmin);
+  font-family: "Sadhguru Thin";
+}
+.Toastify__toast--error {
+  background-color: rgb(189, 0, 0);
+}
+
+.Toastify__toast--warning {
+  background-color: rgb(233, 156, 14);
+}
+
+@media screen and (max-width: 480px) {
+  .Toastify__toast {
+    border-radius: 4px 4px 0 0;
+  }
+}

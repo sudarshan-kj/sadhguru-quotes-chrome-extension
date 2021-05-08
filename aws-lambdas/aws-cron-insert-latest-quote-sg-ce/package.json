@@ -1,0 +1,19 @@
+{
+  "name": "sadhguru-quotes-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.891.0",
+    "axios": "^0.21.1",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.0.0",
+    "dotenv": "^8.2.0",
+    "log4js": "^6.3.0"
+  }
+}

@@ -1,0 +1,77 @@
+@import "../global/variables.css";
+
+.quoteCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+  animation: fadein 750ms;
+}
+
+.quoteDate {
+  font-family: "Sadhguru Thin";
+  color: var(--date-color);
+  font-size: calc(6px + 1.5vmin);
+  margin: 1rem 0 0 0;
+}
+
+.sg-image {
+  height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.quoteTextContainer {
+  max-width: 800px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  font-family: "Sadhguru Serif";
+}
+
+.signatureContainerDark svg path {
+  fill: var(--dark-theme-text-color);
+}
+
+.signatureContainerLight svg path {
+  fill: var(--light-theme-text-color);
+  animation: fadein 750ms;
+}
+
+.signature {
+  width: 120px;
+}
+
+@media screen and (max-width: 1600px) {
+  .sg-image {
+    height: 300px;
+  }
+  .sg-signature {
+    height: 45px;
+  }
+  .sg-underline {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sg-image {
+    height: 200px;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
