@@ -1,4 +1,4 @@
-org: kjsudi
+org: ishadevops
 app: aws-api-lambda-fetch-quotes-sg-ce
 service: aws-api-lambda-fetch-quotes-sg-ce
 
