@@ -161,6 +161,11 @@ function App() {
           console.log("< Fetching latest quote and random quotes from db >");
           const response = await authAxios.get("/quotes");
           const quoteData = response.data.data;
+          const { fromCache } = response.data;
+          if (fromCache === false) {
+            console.log("< Triggering cache api >");
+            authAxios.post("/cacheQuoteLocally").catch((e) => e);
+          }
           const { randomQuotesList, ...today } = quoteData;
           console.log(
             "< Updated local cache with latest quote and random quotes >"

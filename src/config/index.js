@@ -1,5 +1,3 @@
-import ip from "ip";
-
 const config =
   process.env.NODE_ENV === "development"
     ? {
