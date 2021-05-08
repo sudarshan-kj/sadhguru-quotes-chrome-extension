@@ -12,7 +12,7 @@ const getRandomNumber = (n) => Math.trunc(Math.random() * n);
 /*
 A method which attempts to fetch the latest quote from 
 */
-const fetchFromDb = async () => {
+const fetchDataFromDb = async () => {
   try {
     const random = getRandomNumber(2000);
     logger.info("< Fetching latest quote from DB >");
@@ -30,10 +30,9 @@ const fetchFromDb = async () => {
 /*
 A method which attempts to fetch the latest quote from db and writes to a local file on disk
 */
-exports.fetchFromDbAndCacheLocally = async () => {
+exports.cacheDataLocally = async (data) => {
   try {
     const random = getRandomNumber(2000);
-    const data = await fetchFromDb();
     logger.info("< Attempting to insert new data to file >");
     /*A random number is appended to the console log becasue in cases of high concurrent requests
       multiple console logs would be initialized with the same value. Appending a random number decreases its probability*/
@@ -59,4 +58,4 @@ exports.isStaleData = (publishedDate) => {
   return now.valueOf() >= nextTriggerDate.valueOf();
 };
 
-exports.fetchFromDb = fetchFromDb;
+exports.fetchDataFromDb = fetchDataFromDb;

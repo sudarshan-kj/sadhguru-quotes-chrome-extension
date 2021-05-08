@@ -6,7 +6,7 @@ const createError = require("http-errors");
 logger.level = "debug";
 const app = express();
 const getQuotes = require("./controllers/getQuotes");
-const cacheDataLocally = require("./controllers/cacheDataLocally");
+const initCacheDataLocally = require("./controllers/initCacheDataLocally");
 
 app.use(cors());
 app.use(express.json());
@@ -29,7 +29,7 @@ It's necessary that this api is called before accessing /quotes api (if there is
 in order to update the file with the latest data.
 */
 
-app.post("/cacheQuoteLocally", cacheDataLocally);
+app.post("/cacheQuoteLocally", initCacheDataLocally);
 
 /* Handler for invalid path (404)*/
 app.use((req, res, next) => {

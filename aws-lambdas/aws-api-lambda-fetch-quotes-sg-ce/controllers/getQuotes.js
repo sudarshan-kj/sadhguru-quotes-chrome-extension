@@ -5,7 +5,7 @@ const createError = require("http-errors");
 const logger = require("log4js").getLogger();
 logger.level = "debug";
 const config = require("../config");
-const { fetchFromDb, isStaleData } = require("../utils");
+const { fetchDataFromDb, isStaleData } = require("../utils");
 
 /**
  * @author Sudarshan K J <kjsudi@gmail.com>
@@ -22,7 +22,7 @@ const getQuotes = asyncHandler(async (req, res, next) => {
 
     if (isLocked) {
       console.warn("< File is locked, fetching from DB >");
-      let data = await fetchFromDb();
+      let data = await fetchDataFromDb();
       if (data) return res.status(200).send({ data });
       else throw createError(500, "Data from db was empty");
     } else {
@@ -40,7 +40,7 @@ const getQuotes = asyncHandler(async (req, res, next) => {
     }
   } catch (e) {
     console.log("!...FETCHING FROM DB...CATCH BLOCK...! since: ", e);
-    const data = await fetchFromDb();
+    const data = await fetchDataFromDb();
     if (data) return res.status(200).send({ data, fromCache: false });
     else throw createError(500, "Data from db was empty");
   }

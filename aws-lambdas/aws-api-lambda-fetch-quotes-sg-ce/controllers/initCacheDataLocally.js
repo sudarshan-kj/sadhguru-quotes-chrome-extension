@@ -5,7 +5,7 @@ const config = require("../config");
 const lockfile = require("proper-lockfile");
 const logger = require("log4js").getLogger();
 logger.level = "debug";
-const { fetchFromDbAndCacheLocally } = require("../utils");
+const { fetchDataFromDb, cacheDataLocally } = require("../utils");
 
 /**
  * @author Sudarshan K J <kjsudi@gmail.com>
@@ -15,7 +15,7 @@ const { fetchFromDbAndCacheLocally } = require("../utils");
 Note: All unexpected errors arising out of failing await statements or otherwise are captured by asyncHandler, 
 passes the error object to the custom error handler defined at the bottom of this page.
 */
-const cacheDataLocally = asyncHandler(async (req, res, next) => {
+const initCacheDataLocally = asyncHandler(async (req, res, next) => {
   logger.info("< Received request to cache data locally >");
 
   /* File is checked if present, and only then created in the following catch block. 
@@ -28,23 +28,30 @@ const cacheDataLocally = asyncHandler(async (req, res, next) => {
     await fs.writeFile(config.LOCAL_CACHE_FILE_NAME, "");
   }
 
+  let data;
+  try {
+    data = await fetchDataFromDb();
+  } catch {
+    throw createError(e);
+  }
+
   let release = await lockfile.lock(config.LOCAL_CACHE_FILE_NAME);
   /*
-     We had to wrap the 'fetchFromDbAndCacheLocally' call in a try/catch block 
-     since not doing so would keep the HTTP request hanging if an error occurs in the function. 
+     We had to wrap the 'cacheDataLocally()' call in a try/catch block 
+     since not doing so would keep the HTTP request hanging if an error occurs in the function cacheDataLocally
      We now throw an error received from the function and respond to the caller with the error stack. 
      Finally, the file lock is released regardless of the operation status.
     */
   try {
-    await fetchFromDbAndCacheLocally();
+    await cacheDataLocally(data);
   } catch (e) {
     throw createError(e);
   } finally {
     release();
   }
   return res.status(200).send({
-    message: "Successfully stored updated data to local file cache",
+    message: "Successfully saved fetched data from db to local file cache",
   });
 });
 
-module.exports = cacheDataLocally;
+module.exports = initCacheDataLocally;
