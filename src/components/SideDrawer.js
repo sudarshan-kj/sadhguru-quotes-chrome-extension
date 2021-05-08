@@ -5,6 +5,10 @@ import FollowUsSocialIcons from "./FollowUsSocialIcons";
 import { ReactComponent as ClockIcon } from "../assets/icons/timerIcon.svg";
 import { ReactComponent as InfoIcon } from "../assets/icons/informationIcon.svg";
 import { ReactComponent as RateUsIcon } from "../assets/icons/rateUsIcon.svg";
+import {
+  formatTo12Hour,
+  getCurrentTimeZoneAbbrevation,
+} from "../utils/dateUtils";
 
 const SideDrawer = React.memo(({ version, isOpen, handleDrawer }) => {
   return (
@@ -26,7 +30,11 @@ const SideDrawer = React.memo(({ version, isOpen, handleDrawer }) => {
           </button>
           <div className="infoContainer sixteenPx">
             <ClockIcon className="icon" />
-            <p>Quotes are updated everyday at 8:15 AM IST</p>
+            <p>
+              Quotes are updated everyday at{" "}
+              {formatTo12Hour(new Date("2021-01-01T03:00:00.000Z"))}{" "}
+              {getCurrentTimeZoneAbbrevation()}
+            </p>
           </div>
           <div className="infoContainer twentyPx">
             <h1>Tell your friends</h1>

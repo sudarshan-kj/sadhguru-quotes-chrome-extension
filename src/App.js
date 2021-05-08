@@ -6,7 +6,6 @@ import ordinal from "date-and-time/plugin/ordinal";
 import date from "date-and-time";
 import authAxios from "./utils/auth";
 import Controls from "./components/Controls";
-import publicIp from "public-ip";
 import SideDrawer from "./components/SideDrawer";
 import classNames from "classnames";
 import ToggleSwitch from "./components/ToggleSwitch";
@@ -34,11 +33,6 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./utils/theme";
 import Settings from "./components/Settings";
 import SkewedDiagonal from "./components/SkewedDiagonal";
-
-// const getClientIp = async () =>
-//   await publicIp.v4({
-//     fallbackUrls: ["https://ifconfig.co/ip"],
-//   });
 
 date.plugin(ordinal);
 const datePattern = date.compile("MMMM DDD, YYYY");
@@ -122,7 +116,6 @@ function App() {
   }
 
   useEffect(() => {
-    // getClientIp().then((result) => console.log(`< Ip is ${result} >`));
     const isOnline = navigator.onLine;
     (async () => {
       let { version } = await getVersion();

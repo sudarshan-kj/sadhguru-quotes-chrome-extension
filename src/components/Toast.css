@@ -1,6 +1,8 @@
+@import "../global/variables.css";
+
 .Toastify__toast {
   border-radius: 4px;
-  background-color: rgb(138, 70, 6);
+  background-color: var(--drawer-bg-color);
 }
 
 .Toastify__toast-body {
