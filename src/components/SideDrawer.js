@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideDrawer.css";
 import classNames from "classnames";
-import FollowUsSocialIcons from "./FollowUsSocialIcons";
+import { FollowUsSocialIcons, ShareWithSocialIcons } from "./SocialIcons";
 import { ReactComponent as ClockIcon } from "../assets/icons/timerIcon.svg";
 import { ReactComponent as InfoIcon } from "../assets/icons/informationIcon.svg";
 import { ReactComponent as RateUsIcon } from "../assets/icons/rateUsIcon.svg";
@@ -9,6 +9,7 @@ import {
   formatTo12Hour,
   getCurrentTimeZoneAbbrevation,
 } from "../utils/dateUtils";
+import config from "../config";
 
 const SideDrawer = React.memo(({ version, isOpen, handleDrawer }) => {
   return (
@@ -38,16 +39,19 @@ const SideDrawer = React.memo(({ version, isOpen, handleDrawer }) => {
           </div>
           <div className="infoContainer twentyPx">
             <h1>Tell your friends</h1>
+            <ShareWithSocialIcons />
           </div>
           <div className="infoContainer twentyPx">
             <h1>Follow us on</h1>
             <FollowUsSocialIcons />
           </div>
           <div className="infoContainer ">
-            <div className="rateUsContainer fourteenPx">
-              <RateUsIcon />
-              <h2>Rate Us</h2>
-            </div>
+            <a href={config.CHROME_EXT_URL} target="_blank" rel="noreferrer">
+              <div className="rateUsContainer fourteenPx">
+                <RateUsIcon className="rateUsIcon" />
+                <h2>Rate Us</h2>
+              </div>
+            </a>
             <div className="copyrightContent twelvePx">
               Copyright &copy; 2021, Isha Foundation
             </div>

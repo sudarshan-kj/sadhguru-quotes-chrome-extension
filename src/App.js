@@ -68,7 +68,9 @@ function App() {
   }, []);
 
   const getRandomQuote = (quotesList) => {
-    const length = quotesList.length;
+    const length = quotesList.length - 1;
+    /* -1 because we do not want today's quote to be in the random quote set, and since 
+    the latest quote is always the last quote, we discard generating a random number for the last quote*/
     const random = Math.floor(Math.random() * length);
     return quotesList[random];
   };

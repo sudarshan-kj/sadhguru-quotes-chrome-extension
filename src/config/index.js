@@ -7,6 +7,7 @@ const config =
         //24hr = 1440 + 15min(buffer)
         //Tweets are posted exactly at 2:45 GMT everyday, so we triggger an api call only after 3:00GMT the next day
         ADD_MINS_TO_TRIGGER: 1455,
+        CHROME_EXT_URL: "https://bit.ly/3wavtTD",
       }
     : {
         API_ENDPOINT:
@@ -15,6 +16,7 @@ const config =
         //24hr = 1440 + 15min(buffer)
         //Tweets are posted exactly at 2:45 GMT everyday, so we triggger an api call only after 3:00GMT the next day
         ADD_MINS_TO_TRIGGER: 1455,
+        CHROME_EXT_URL: "https://bit.ly/3wavtTD",
       };
 
 export default config;

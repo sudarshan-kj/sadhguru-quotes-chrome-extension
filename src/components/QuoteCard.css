@@ -6,7 +6,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   text-align: center;
   animation: fadein 750ms;
 }
@@ -18,9 +18,29 @@
   margin: 1rem 0 0 0;
 }
 
+.imageContainer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  position: relative;
+}
+
 .sg-image {
-  height: 400px;
+  height: 370px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.loadingImageSpinner {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--date-color);
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 button {
@@ -29,7 +49,8 @@ button {
 }
 
 .quoteTextContainer {
-  max-width: 800px;
+  max-width: 700px;
+  min-height: 200px;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -49,15 +70,15 @@ button {
   width: 120px;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-height: 900px) {
   .sg-image {
-    height: 300px;
+    height: 280px;
+  }
+  .quoteTextContainer {
+    min-height: 150px;
   }
   .sg-signature {
     height: 45px;
-  }
-  .sg-underline {
-    width: 120px;
   }
 }
 

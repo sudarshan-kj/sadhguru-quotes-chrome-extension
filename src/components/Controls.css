@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-  font-size: 10px;
+  font-size: 11px;
   height: 50px;
 }
 
@@ -27,6 +27,7 @@
 .randomButton:hover,
 .todayButton:hover {
   color: var(--hover-button-color);
+  cursor: pointer;
 }
 
 .randomButton:hover svg path,
@@ -34,7 +35,26 @@
   fill: var(--hover-button-color);
 }
 
-.randomButton:hover,
-.todayButton:hover {
-  cursor: pointer;
+.disabledColorLight svg path,
+.disabledColorLight:hover svg path {
+  fill: var(--disabled-color-light);
+}
+
+.disabledColorLight,
+.disabledColorLight:hover {
+  color: var(--disabled-color-light);
+}
+
+.disabledColorDark svg path,
+.disabledColorDark:hover svg path {
+  fill: var(--disabled-color-dark);
+}
+
+.disabledColorDark,
+.disabledColorDark:hover {
+  color: var(--disabled-color-dark);
+}
+
+.disableTodaysQuoteButton:hover {
+  cursor: unset;
 }

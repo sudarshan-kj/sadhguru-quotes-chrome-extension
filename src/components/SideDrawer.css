@@ -36,11 +36,6 @@
   color: rgb(255, 188, 62);
 }
 
-.infoContainer a:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
 .icon {
   height: 20px;
   width: 20px;
@@ -101,6 +96,16 @@ h1 {
 
 .sidenav button:hover {
   color: var(--hover-button-color);
+}
+
+.infoContainer a:hover h2 {
+  color: var(--hover-button-color);
+  transition: 0.25s;
+}
+
+a:hover .rateUsContainer svg path {
+  fill: var(--hover-button-color);
+  transition: 0.25s;
 }
 
 .sidenav .closebtn {

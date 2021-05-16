@@ -1,12 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as Random } from "../assets/icons/randomIcon.svg";
 import { ReactComponent as Today } from "../assets/icons/todayIcon.svg";
+import classNames from "classnames";
 import "./Controls.css";
+import { useTheme } from "styled-components";
 
 const Controls = ({ randomQuoteDate, onRandomClick, onTodaysQuoteClick }) => {
-  const [disableTodaysQuoteButton, setDisableTodaysQuoteButton] = useState(
-    false
-  );
+  const [disableTodaysQuoteButton, setDisableTodaysQuoteButton] =
+    useState(false);
+  const theme = useTheme();
 
   const checkIfTodaysQuote = useCallback(() => {
     const today = new Date();
@@ -34,7 +36,11 @@ const Controls = ({ randomQuoteDate, onRandomClick, onTodaysQuoteClick }) => {
         <span>Random quote</span>
       </div>
       <div
-        className="todayButton"
+        className={classNames("todayButton", {
+          disableTodaysQuoteButton,
+          disabledColorLight: theme.isLight && disableTodaysQuoteButton,
+          disabledColorDark: !theme.isLight && disableTodaysQuoteButton,
+        })}
         onClick={() => {
           setDisableTodaysQuoteButton(true);
           onTodaysQuoteClick();
