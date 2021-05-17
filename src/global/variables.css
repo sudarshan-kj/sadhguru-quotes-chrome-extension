@@ -1,11 +1,27 @@
 :root {
-  --light-theme-text-color: #28231e;
-  --dark-theme-text-color: #b8b4ac;
   --button-color: #7e756d;
   --date-color: #73756d;
   --drawer-bg-color: #464038;
   --drawer-content-font-color: #f5f0e5;
   --hover-button-color: #ca8825;
-  --disabled-color-light: #d6cebe;
-  --disabled-color-dark: #fffbf621;
+}
+
+[data-theme="light"] {
+  --primary-bg-color: #f5f0e5;
+  --secondary-bg-color: #ffffff;
+  --text-color: #28231e;
+  --dropup-menu-bg-color: #ffffff;
+  --dropup-menu-text-color: #676055;
+  --dropup-toogle-button-bg-color: #d7d7d7;
+  --disabled-color: #d6cebe;
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #28231e;
+  --secondary-bg-color: #0d0d0d;
+  --text-color: #b8b4ac;
+  --dropup-menu-bg-color: #464038;
+  --dropup-menu-text-color: #b8b4ac;
+  --dropup-toogle-button-bg-color: #b8b4ac;
+  --disabled-color: #fffbf621;
 }

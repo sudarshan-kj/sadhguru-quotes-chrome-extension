@@ -1,5 +1,3 @@
-@import "../global/variables.css";
-
 .quoteCard {
   width: 100%;
   display: flex;
@@ -57,12 +55,8 @@ button {
   font-family: "Sadhguru Serif";
 }
 
-.signatureContainerDark svg path {
-  fill: var(--dark-theme-text-color);
-}
-
-.signatureContainerLight svg path {
-  fill: var(--light-theme-text-color);
+.signatureContainer svg path {
+  fill: var(--text-color);
   animation: fadein 750ms;
 }
 
@@ -70,15 +64,21 @@ button {
   width: 120px;
 }
 
-@media screen and (max-height: 900px) {
+@media screen and (max-width: 1600px) {
   .sg-image {
     height: 280px;
   }
   .quoteTextContainer {
     min-height: 150px;
   }
-  .sg-signature {
-    height: 45px;
+}
+
+@media screen and (max-height: 800px) {
+  .sg-image {
+    height: 220px;
+  }
+  .quoteTextContainer {
+    min-height: 150px;
   }
 }
 

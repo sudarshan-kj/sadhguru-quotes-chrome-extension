@@ -1,0 +1,12 @@
+.skewedDiagonal {
+  position: absolute;
+  top: -60%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--secondary-bg-color);
+  transform: skewY(-5deg);
+  transform-origin: top left;
+}

@@ -38,8 +38,7 @@ const Controls = ({ randomQuoteDate, onRandomClick, onTodaysQuoteClick }) => {
       <div
         className={classNames("todayButton", {
           disableTodaysQuoteButton,
-          disabledColorLight: theme.isLight && disableTodaysQuoteButton,
-          disabledColorDark: !theme.isLight && disableTodaysQuoteButton,
+          disabledColor: disableTodaysQuoteButton,
         })}
         onClick={() => {
           setDisableTodaysQuoteButton(true);

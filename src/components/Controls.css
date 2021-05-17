@@ -35,24 +35,14 @@
   fill: var(--hover-button-color);
 }
 
-.disabledColorLight svg path,
-.disabledColorLight:hover svg path {
-  fill: var(--disabled-color-light);
+.disabledColor svg path,
+.disabledColor:hover svg path {
+  fill: var(--disabled-color);
 }
 
-.disabledColorLight,
-.disabledColorLight:hover {
-  color: var(--disabled-color-light);
-}
-
-.disabledColorDark svg path,
-.disabledColorDark:hover svg path {
-  fill: var(--disabled-color-dark);
-}
-
-.disabledColorDark,
-.disabledColorDark:hover {
-  color: var(--disabled-color-dark);
+.disabledColor,
+.disabledColor:hover {
+  color: var(--disabled-color);
 }
 
 .disableTodaysQuoteButton:hover {

@@ -17,12 +17,12 @@ const ToggleSwitch = React.memo(({ callback, initState }) => {
   }, [checked, callback]);
 
   return (
-    <>
-      <label data-for="toggleSwitch" className="switch">
-        <input type="checkbox" checked={checked} onChange={handleChecked} />
-        <span className="slider round"></span>
+    <div className="toggle checkcross">
+      <input id="checkcross" onChange={handleChecked} type="checkbox" />
+      <label className="toggle-item" htmlFor="checkcross">
+        <div className="check" />
       </label>
-    </>
+    </div>
   );
 });
 

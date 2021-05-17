@@ -40,11 +40,7 @@ const QuoteCard = ({ publishedDate, quoteImage, children }) => {
       <div className="quoteTextContainer">
         <p className="quoteText">{children}</p>
       </div>
-      <div
-        className={classNames(
-          theme.isLight ? "signatureContainerLight" : "signatureContainerDark"
-        )}
-      >
+      <div className="signatureContainer">
         <SGSignature className="signature" />
       </div>
     </div>
