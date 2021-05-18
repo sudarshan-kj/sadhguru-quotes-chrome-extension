@@ -11,3 +11,9 @@
   transform-origin: top left;
   transition: 0.4s;
 }
+
+@media screen and (max-height: 550px) {
+  .skewedDiagonal {
+    top: -70%;
+  }
+}
