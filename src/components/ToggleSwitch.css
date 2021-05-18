@@ -28,11 +28,11 @@ label.toggle-item {
   height: 15px;
   position: absolute;
   background: rgb(61, 61, 61);
-
   transition: 0.4s ease;
   top: 2.5px;
   left: 2px;
 }
+
 .checkcross .check:before,
 .checkcross .check:after {
   height: 1.5px;

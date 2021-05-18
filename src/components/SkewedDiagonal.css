@@ -9,4 +9,5 @@
   background-color: var(--secondary-bg-color);
   transform: skewY(-5deg);
   transform-origin: top left;
+  transition: 0.4s;
 }

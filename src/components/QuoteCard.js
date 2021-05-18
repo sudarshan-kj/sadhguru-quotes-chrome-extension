@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { ReactComponent as SGSignature } from "../assets/icons/sadhguruSignature.svg";
 import SadhguruDefaultImage from "../assets/sadhguru.jpg";
 import "./QuoteCard.css";
-import { useTheme } from "styled-components";
 import classNames from "classnames";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
 const QuoteCard = ({ publishedDate, quoteImage, children }) => {
-  const theme = useTheme();
   const [isImageLoading, setIsImageLoading] = useState(true);
   return (
     <div className="quoteCard">

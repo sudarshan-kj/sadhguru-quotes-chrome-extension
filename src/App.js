@@ -30,10 +30,10 @@ import {
 import { getVersion } from "./utils/chromeUtils";
 import Settings from "./components/Settings";
 import SkewedDiagonal from "./components/SkewedDiagonal";
-import { ThemeProvider } from "styled-components";
 
 date.plugin(ordinal);
 const datePattern = date.compile("MMMM DDD, YYYY");
+// window.matchMedia("(prefers-color-scheme: dark)");
 
 function App() {
   const [quote, dispatchQuotes] = useReducer(quoteReducer, quoteInitSeedData);
@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", quotesMetaData.theme);
-  }, []);
+  }, [quotesMetaData.theme]);
 
   const decryptQuotesList = useCallback((quotesList) => {
     const encryptedQuotes = quotesList;
@@ -101,16 +101,18 @@ function App() {
     quotesData.today,
   ]);
 
-  const handleToggleTheme = useCallback((value) => {
-    const theme = value ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", theme);
-    setQuotesMetaData((prev) => {
-      return {
-        ...prev,
-        theme,
-      };
-    });
-  });
+  const handleToggleTheme = useCallback(
+    (value) => {
+      const theme = value ? "dark" : "light";
+      setQuotesMetaData((prev) => {
+        return {
+          ...prev,
+          theme,
+        };
+      });
+    },
+    [setQuotesMetaData]
+  );
 
   const handleToggleShowRandomQuote = useCallback(
     (value) => {
@@ -243,11 +245,15 @@ function App() {
     <div>
       <SkewedDiagonal />
       <div className="mainContainer">
-        {/* <ToggleSwitch
-          callback={handleToggleSwitch}
-          initState={quotesMetaData.showRandomQuote}
-        /> */}
-        <div className={classNames("app", { shrink: isDrawerOpen })}>
+        <ToggleSwitch
+          callback={handleToggleTheme}
+          initState={quotesMetaData.theme === "dark" ? true : false}
+        />
+        <div
+          className={classNames("app", {
+            shrink: isDrawerOpen,
+          })}
+        >
           <QuoteCard
             key={quote.quote}
             publishedDate={getPublishdedDate()}
@@ -258,11 +264,11 @@ function App() {
               : quote.quote}
             {quote.isError && !quote.quote && "Something unpleasant occurred."}
           </QuoteCard>
-          <Settings
+          {/* <Settings
             initState={quotesMetaData}
             onToggleTheme={handleToggleTheme}
             onToggleRandomQuoteOnNewTab={handleToggleShowRandomQuote}
-          />
+          /> */}
           <Controls
             randomQuoteDate={quote.publishedDate}
             onTodaysQuoteClick={handleTodaysQuoteClick}
