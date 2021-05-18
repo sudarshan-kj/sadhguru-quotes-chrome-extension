@@ -1,15 +1,17 @@
 @font-face {
   font-family: "Sadhguru Thin";
-  src: url("https://images.sadhguru.org/profiles/isha/themes/ishatheme/fonts/WF-028154-009464-000007.woff")
-    format("woff");
+  src: url("./assets/fonts/sg-thin.woff") format("woff");
+  /* src: url("https://images.sadhguru.org/profiles/isha/themes/ishatheme/fonts/WF-028154-009464-000007.woff")
+  format("woff"); */
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Sadhguru Serif";
-  src: url("https://images.sadhguru.org/profiles/isha/themes/ishatheme/fonts/WF-028154-009464-000003.woff")
-    format("woff");
+  src: url("./assets/fonts/sg-med.woff") format("woff");
+  /* src: url("https://images.sadhguru.org/profiles/isha/themes/ishatheme/fonts/WF-028154-009464-000003.woff")
+  format("woff"); */
   font-weight: normal;
   font-style: normal;
 }
@@ -28,13 +30,13 @@
   font-style: normal;
 }
 
-@font-face {
+/* @font-face {
   font-family: "Fedra Sans Std";
   src: url("https://images.sadhguru.org/profiles/isha/themes/ishatheme/fonts/Fedra-Sans-Std-Book.ttf")
     format("ttf");
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 html {
   box-sizing: border-box;
@@ -43,9 +45,8 @@ html {
 body {
   margin: 0;
   background: #28231e;
-  font-family: "Fedra Sans Std", "Sadhguru Thin", "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Sadhguru Thin", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./Settings.module.css";
 import { ReactComponent as SettingsIcon } from "../assets/icons/settingsIcon.svg";
-import { ReactComponent as NightModeIcon } from "../assets/icons/nightModeIcon.svg";
 import ToggleSwitch from "./ToggleSwitch";
 
 const Settings = ({
@@ -24,7 +23,6 @@ const Settings = ({
         <span>Random Quote on New Tab</span>
       </div>
       <div className={styles.menuContentWrapper}>
-        {/* <NightModeIcon className={styles.darkModeMenuIcon} /> */}
         <ToggleSwitch
           variant="darkandlight"
           callback={onToggleTheme}

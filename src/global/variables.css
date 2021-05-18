@@ -13,6 +13,7 @@
   --dropup-menu-bg-color: #ffffff;
   --dropup-menu-text-color: #676055;
   --dropup-toogle-button-bg-color: #d7d7d7;
+  --dropup-content-hover-color: #f1f1f1;
   --disabled-color: #d6cebe;
 }
 
@@ -23,5 +24,6 @@
   --dropup-menu-bg-color: #464038;
   --dropup-menu-text-color: #b8b4ac;
   --dropup-toogle-button-bg-color: #b8b4ac;
+  --dropup-content-hover-color: #303030;
   --disabled-color: #fffbf621;
 }

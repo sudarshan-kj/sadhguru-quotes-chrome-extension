@@ -6,3 +6,8 @@
 .justifySpaceEvenly {
   justify-content: space-evenly;
 }
+
+.iconDimensions {
+  height: 40px;
+  width: 40px;
+}

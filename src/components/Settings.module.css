@@ -20,27 +20,27 @@
   position: absolute;
   bottom: 50px;
   right: 0;
+  border-radius: 5px;
+  z-index: 1;
+  background-color: var(--dropup-menu-bg-color);
+  color: var(--dropup-menu-text-color);
   min-width: 270px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* Links inside the dropup */
 .dropupContent .menuContentWrapper {
-  color: var(--dropup-menu-text-color);
   font-size: 12px;
-  padding: 12px 16px;
   text-decoration: none;
   display: flex;
-  padding: 16px;
-  background-color: var(--dropup-menu-bg-color);
+  border-radius: inherit;
   align-items: center;
-  cursor: pointer;
 }
 
 /* Change color of dropup links on hover */
-/* .dropupContent .menuContentWrapper:hover {
-  background-color: #302d2a;
-} */
+.dropupContent .menuContentWrapper:hover {
+  background-color: var(--dropup-content-hover-color);
+}
 
 /* Show the dropup menu on hover */
 .dropup:hover .dropupContent {
@@ -50,13 +50,6 @@
 
 .menuContentWrapper svg path {
   fill: var(--drawer-content-font-color);
-}
-
-.randomMenuIcon,
-.darkModeMenuIcon {
-  height: 16px;
-  width: 16px;
-  margin: 0 1rem 0 0;
 }
 
 @keyframes fadein {

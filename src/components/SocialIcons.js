@@ -19,28 +19,28 @@ const HASHTAG = "SadhguruQuotes";
 export const FollowUsSocialIcons = () => (
   <div className="socialIcons">
     <a href="https://twitter.com/SadhguruJV" target="_blank" rel="noreferrer">
-      <TwitterIcon />
+      <TwitterIcon className="iconDimensions" />
     </a>
     <a
       href="https://www.facebook.com/sadhguru/"
       target="_blank"
       rel="noreferrer"
     >
-      <FacebookIcon />
+      <FacebookIcon className="iconDimensions" />
     </a>
     <a
       href="https://www.youtube.com/user/sadhguru"
       target="_blank"
       rel="noreferrer"
     >
-      <YoutubeIcon />
+      <YoutubeIcon className="iconDimensions" />
     </a>
     <a
       href="https://www.instagram.com/sadhguru"
       target="_blank"
       rel="noreferrer"
     >
-      <InstagramIcon />
+      <InstagramIcon className="iconDimensions" />
     </a>
   </div>
 );
@@ -53,17 +53,17 @@ export const ShareWithSocialIcons = () => {
         title={QUOTE}
         hashtags={[HASHTAG]}
       >
-        <TwitterIcon />
+        <TwitterIcon className="iconDimensions" />
       </TwitterShareButton>
       <FacebookShareButton
         url={config.CHROME_EXT_URL}
         quote={QUOTE}
         hashtag={`#${HASHTAG}`}
       >
-        <FacebookIcon />
+        <FacebookIcon className="iconDimensions" />
       </FacebookShareButton>
       <WhatsappShareButton url={config.CHROME_EXT_URL} title={QUOTE}>
-        <WhatsappIcon />
+        <WhatsappIcon className="iconDimensions" />
       </WhatsappShareButton>
     </div>
   );
