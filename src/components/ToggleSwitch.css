@@ -22,7 +22,7 @@ label.toggle-item {
   margin-right: 1rem;
 }
 
-.checkcross .check {
+.plusandminus .check {
   border-radius: 50%;
   width: 15px;
   height: 15px;
@@ -33,38 +33,89 @@ label.toggle-item {
   left: 2px;
 }
 
-.checkcross .check:before,
-.checkcross .check:after {
+.plusandminus .check:before,
+.plusandminus .check:after {
   height: 1.5px;
   background: #fff;
   position: absolute;
   content: "";
   transition: 0.4s ease;
 }
-.checkcross .check:before {
+.plusandminus .check:before {
   width: 8px;
   transform: translate(3.5px, 7px);
 }
 
-.checkcross .check:after {
+.plusandminus .check:after {
   width: 8px;
   transform: translate(3.5px, 7px);
 }
 
-#checkcross:checked + label.toggle-item {
-  background: rgb(112, 111, 111);
+#plusandminus:checked + label.toggle-item {
+  background: rgb(92, 91, 91);
 }
 
-#checkcross:checked + label .check {
+#plusandminus:checked + label .check {
   left: 23px;
   transform: rotate(360deg);
   background: yellowgreen;
 }
-#checkcross:checked + label .check:before {
+#plusandminus:checked + label .check:before {
   width: 8px;
   transform: translate(3.5px, 7px);
 }
-#checkcross:checked + label .check:after {
+#plusandminus:checked + label .check:after {
   width: 8px;
   transform: rotate(90deg) translate(7px, -3.5px);
+}
+
+.darkandlight .check {
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: rgb(46, 45, 44);
+  /* box-shadow: 0px 0px 2px 3px rgb(241, 227, 95); */
+  transition: 0.4s ease;
+  top: 2.5px;
+  left: 2px;
+}
+
+.darkandlight .check:before,
+.darkandlight .check:after {
+  height: 1.5px;
+  background: #fff;
+  position: absolute;
+  content: "";
+  transition: 0.4s ease;
+}
+.darkandlight .check:before {
+  width: 8px;
+  transform: translate(3.5px, 7px);
+}
+
+.darkandlight .check:after {
+  width: 8px;
+  transform: translate(3.5px, 7px);
+}
+
+#darkandlight:checked + label.toggle-item {
+  background: rgb(92, 91, 91);
+}
+
+#darkandlight:checked + label .check {
+  left: 23px;
+  transform: rotate(360deg);
+  background-color: transparent;
+  box-shadow: 5px 3px 0px 0px rgb(238, 236, 133);
+  transform: translate(-7.5px, -3px);
+}
+
+#darkandlight:checked + label .check:before {
+  height: 0px;
+  width: 0px;
+}
+#darkandlight:checked + label .check:after {
+  height: 0px;
+  width: 0px;
 }

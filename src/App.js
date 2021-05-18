@@ -34,6 +34,8 @@ import SkewedDiagonal from "./components/SkewedDiagonal";
 date.plugin(ordinal);
 const datePattern = date.compile("MMMM DDD, YYYY");
 // window.matchMedia("(prefers-color-scheme: dark)");
+//The following variable is used to remove the transition fromt the .app div when the theme is being changed
+let changingTheme = false;
 
 function App() {
   const [quote, dispatchQuotes] = useReducer(quoteReducer, quoteInitSeedData);
@@ -48,7 +50,19 @@ function App() {
   );
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", quotesMetaData.theme);
+    if (quotesMetaData.theme) {
+      document.documentElement.setAttribute("data-theme", quotesMetaData.theme);
+    } else {
+      console.log("< Reading User Theme Preference >");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+      let theme = prefersDark.matches ? "dark" : "light";
+      setQuotesMetaData((prev) => {
+        return {
+          ...prev,
+          theme,
+        };
+      });
+    }
   }, [quotesMetaData.theme]);
 
   const decryptQuotesList = useCallback((quotesList) => {
@@ -103,6 +117,8 @@ function App() {
 
   const handleToggleTheme = useCallback(
     (value) => {
+      changingTheme = true;
+      setTimeout(() => (changingTheme = false), 1000);
       const theme = value ? "dark" : "light";
       setQuotesMetaData((prev) => {
         return {
@@ -245,13 +261,15 @@ function App() {
     <div>
       <SkewedDiagonal />
       <div className="mainContainer">
-        <ToggleSwitch
+        {/* <ToggleSwitch
           callback={handleToggleTheme}
           initState={quotesMetaData.theme === "dark" ? true : false}
-        />
+          updateState={quotesMetaData.theme !== ""}
+        /> */}
         <div
           className={classNames("app", {
             shrink: isDrawerOpen,
+            noTransition: changingTheme,
           })}
         >
           <QuoteCard
@@ -264,11 +282,11 @@ function App() {
               : quote.quote}
             {quote.isError && !quote.quote && "Something unpleasant occurred."}
           </QuoteCard>
-          {/* <Settings
+          <Settings
             initState={quotesMetaData}
             onToggleTheme={handleToggleTheme}
             onToggleRandomQuoteOnNewTab={handleToggleShowRandomQuote}
-          /> */}
+          />
           <Controls
             randomQuoteDate={quote.publishedDate}
             onTodaysQuoteClick={handleTodaysQuoteClick}

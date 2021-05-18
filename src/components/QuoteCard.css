@@ -86,6 +86,9 @@ button {
   .sg-image {
     height: 200px;
   }
+  .signature {
+    width: 90px;
+  }
 }
 
 @keyframes fadein {

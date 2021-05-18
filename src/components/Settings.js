@@ -16,14 +16,21 @@ const Settings = ({
     <div className={styles.dropupContent}>
       <div className={styles.menuContentWrapper}>
         <ToggleSwitch
+          variant="plusandminus"
           callback={onToggleRandomQuoteOnNewTab}
           initState={initState.showRandomQuote}
+          updateState={false}
         />
         <span>Random Quote on New Tab</span>
       </div>
       <div className={styles.menuContentWrapper}>
         {/* <NightModeIcon className={styles.darkModeMenuIcon} /> */}
-
+        <ToggleSwitch
+          variant="darkandlight"
+          callback={onToggleTheme}
+          initState={initState.theme === "dark" ? true : false}
+          updateState={initState.theme !== ""}
+        />
         <span>Dark Mode</span>
       </div>
     </div>
