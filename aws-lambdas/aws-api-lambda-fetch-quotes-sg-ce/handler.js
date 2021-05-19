@@ -7,6 +7,8 @@ logger.level = "debug";
 const app = express();
 const getQuotes = require("./controllers/getQuotes");
 const initCacheDataLocally = require("./controllers/initCacheDataLocally");
+const protectedRouteController = require("./controllers/protectedRouteController");
+require("./services/init.service");
 
 app.use(cors());
 app.use(express.json());
@@ -30,6 +32,8 @@ in order to update the file with the latest data.
 */
 
 app.post("/cacheQuoteLocally", initCacheDataLocally);
+
+app.use("/prot/sgq/auth", protectedRouteController);
 
 /* Handler for invalid path (404)*/
 app.use((req, res, next) => {

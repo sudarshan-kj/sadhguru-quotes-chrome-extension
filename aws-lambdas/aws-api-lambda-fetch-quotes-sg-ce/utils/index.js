@@ -1,4 +1,4 @@
-const { readData } = require("../dynamo");
+const { readData } = require("../dynamo/dataOperations");
 const config = require("../config");
 const logger = require("log4js").getLogger();
 const fs = require("fs").promises;

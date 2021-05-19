@@ -1,4 +1,4 @@
-org: ishadevops
+org: kjsudi
 app: aws-api-lambda-fetch-quotes-sg-ce
 service: aws-api-lambda-fetch-quotes-sg-ce
 
@@ -20,4 +20,10 @@ functions:
           method: GET
       - http:
           path: /cacheQuoteLocally
+          method: POST
+      - http:
+          path: /prot/sgq/auth/bulk
+          method: POST
+      - http:
+          path: /prot/sgq/auth/collate
           method: POST
