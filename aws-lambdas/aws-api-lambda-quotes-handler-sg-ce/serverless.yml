@@ -1,6 +1,6 @@
 org: ishadevops
-app: aws-api-lambda-fetch-quotes-sg-ce
-service: aws-api-lambda-fetch-quotes-sg-ce
+app: aws-api-lambda-quotes-handler-sg-ce
+service: aws-api-lambda-quotes-handler-sg-ce
 
 frameworkVersion: "2"
 
