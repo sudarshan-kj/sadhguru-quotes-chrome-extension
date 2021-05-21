@@ -16,7 +16,7 @@ Note: All unexpected errors arising out of failing await statements or otherwise
 passes the error object to the custom error handler defined at the bottom of this page.
 */
 const initCacheDataLocally = asyncHandler(async (req, res, next) => {
-  logger.info("< Received request to cache data locally >");
+  logger.info("[ Cache Data Locally Request - START ]");
 
   /* File is checked if present, and only then created in the following catch block. 
     Not doing this would create a dummy file everytime with the value 'undefined'
@@ -49,6 +49,7 @@ const initCacheDataLocally = asyncHandler(async (req, res, next) => {
   } finally {
     release();
   }
+  logger.info("[ Cache Data Locally Request - END ]");
   return res.status(200).send({
     message: "Successfully saved fetched data from db to local file cache",
   });

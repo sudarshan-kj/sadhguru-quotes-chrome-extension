@@ -22,6 +22,7 @@ The following api validates if the client is allowed to make a request to this a
 supports inserting data into a known index.
 */
 const bulkInsert = asyncHandler(async (req, res, next) => {
+  logger.info("[ Quote Insert request - START ]");
   const quotesData = req.body.data;
   //Guard clause
   if (!quotesData || !quotesData.length) {
@@ -34,6 +35,7 @@ const bulkInsert = asyncHandler(async (req, res, next) => {
       logger.warn("[ Data already exists ]");
     }
   }
+  logger.info("[ Quote Insert request - END ]");
   return res.status(200).send({ message: "Successfully inserted data" });
 });
 
@@ -68,6 +70,7 @@ const insertEncryptedRandomQuotes = async (latestQuote, collateCount) => {
 };
 
 const collateAndInsert = asyncHandler(async (req, res, next) => {
+  logger.info("[ Collate Quote request - START ]");
   const quotesData = req.body.data;
   const collateCount = parseInt(req.query.collateCount);
   //Guard clause
@@ -81,6 +84,7 @@ const collateAndInsert = asyncHandler(async (req, res, next) => {
     quotesData[0],
     collateCount
   );
+  logger.info("[ Collate Quote request - END ]");
   return res.status(200).send({
     latest,
     randomQuotesList,

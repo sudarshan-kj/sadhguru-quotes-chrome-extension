@@ -12,3 +12,25 @@ exports.triggerCacheApi = async () => {
     logger.error("Error occurred while trigger cache api", e);
   }
 };
+
+exports.triggerAddApi = async () => {
+  try {
+    logger.info("[ Triggering local cache api ]");
+    let response = await triggerCacheApi.post("");
+    logger.info("[ Successfully triggered local cache api ]");
+    logger.info("[ Response from trigger api ] => ", response.data);
+  } catch (e) {
+    logger.error("Error occurred while trigger cache api", e);
+  }
+};
+
+exports.triggerCollateApi = async () => {
+  try {
+    logger.info("[ Triggering local cache api ]");
+    let response = await triggerCacheApi.post("");
+    logger.info("[ Successfully triggered local cache api ]");
+    logger.info("[ Response from trigger api ] => ", response.data);
+  } catch (e) {
+    logger.error("Error occurred while trigger cache api", e);
+  }
+};

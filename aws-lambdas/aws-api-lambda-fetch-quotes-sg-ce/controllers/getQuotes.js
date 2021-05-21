@@ -12,7 +12,7 @@ const { fetchDataFromDb, isStaleData } = require("../utils");
  */
 
 const getQuotes = asyncHandler(async (req, res, next) => {
-  logger.info("< Received read request >");
+  logger.info("[ Read Quote Request - START ]");
   try {
     /* The following lock check on the file is necessary to avoid reading an empty file, which is created
       just before the /cacheAndStoreLocally api starts writing data to it. This lock check prevents reading such empty files
@@ -23,8 +23,11 @@ const getQuotes = asyncHandler(async (req, res, next) => {
     if (isLocked) {
       console.warn("< File is locked, fetching from DB >");
       let data = await fetchDataFromDb();
-      if (data) return res.status(200).send({ data });
-      else throw createError(500, "Data from db was empty");
+      if (data) {
+        logger.info("< OK: Returning data from Local File Cache >");
+        logger.info("[ Read Quote Request - END ]");
+        return res.status(200).send({ data });
+      } else throw createError(500, "Data from db was empty");
     } else {
       let dataFromFile = await fs.readFile(
         config.LOCAL_CACHE_FILE_NAME,
@@ -36,13 +39,17 @@ const getQuotes = asyncHandler(async (req, res, next) => {
       if (isStaleData(dataFromFile.publishedDate))
         throw new Error("< !!! Stale data found in cache !!! >");
       logger.info("< OK: Returning data from Local File Cache >");
+      logger.info("[ Read Quote Request - END ]");
       return res.status(200).send({ data: dataFromFile, fromCache: true });
     }
   } catch (e) {
     console.log("!...FETCHING FROM DB...CATCH BLOCK...! since: ", e);
     const data = await fetchDataFromDb();
-    if (data) return res.status(200).send({ data, fromCache: false });
-    else throw createError(500, "Data from db was empty");
+    if (data) {
+      logger.info("< OK: Returning data from Database >");
+      logger.info("[ Read Quote Request - END ]");
+      return res.status(200).send({ data, fromCache: false });
+    } else throw createError(500, "Data from db was empty");
   }
 });
 

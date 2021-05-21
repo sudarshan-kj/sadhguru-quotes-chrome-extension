@@ -11,10 +11,10 @@ const callExit = () => {
   process.exit(1);
 };
 
-const checkBulkInsertWhitelistedApiKeys = () => {
-  const sgBulkInsertWhitelistedApiKey =
+const checkWhitelistedApiKey = () => {
+  const sgWhitelistedApiKey =
     process.env[envConfig.envVars.SG_WLSTD_API_KEY_VAR];
-  if (!sgBulkInsertWhitelistedApiKey) {
+  if (!sgWhitelistedApiKey) {
     envVarNotSet(envConfig.envVars.SG_WLSTD_API_KEY_VAR);
     callExit();
   }
@@ -30,7 +30,7 @@ const checkPrivateKeyEnv = () => {
 
 const checkEnvVars = () => {
   checkPrivateKeyEnv();
-  checkBulkInsertWhitelistedApiKeys();
+  checkWhitelistedApiKey();
 };
 
 const preCheckAppConfig = () => {
