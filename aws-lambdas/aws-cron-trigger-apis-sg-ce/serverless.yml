@@ -1,6 +1,6 @@
 org: ishadevops
-app: aws-cron-insert-latest-quote-sg-ce
-service: aws-cron-insert-latest-quote-sg-ce
+app: aws-cron-trigger-apis-sg-ce
+service: aws-cron-trigger-apis-sg-ce
 
 frameworkVersion: "2"
 
