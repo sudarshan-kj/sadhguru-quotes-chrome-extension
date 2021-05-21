@@ -11,7 +11,7 @@ const config =
       }
     : {
         API_ENDPOINT:
-          "https://m76zdopz5e.execute-api.ap-south-1.amazonaws.com/prod",
+          "https://b3c7gkzt1f.execute-api.ap-south-1.amazonaws.com/prod",
         SG_PRIVATE_KEY: "$@dhGuRu",
         //24hr = 1440 + 15min(buffer)
         //Tweets are posted exactly at 2:45 GMT everyday, so we triggger an api call only after 3:00GMT the next day
