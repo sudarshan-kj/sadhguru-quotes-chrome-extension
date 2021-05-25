@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { ReactComponent as Random } from "../assets/icons/randomIcon.svg";
-import { ReactComponent as Today } from "../assets/icons/todayIcon.svg";
+import { ReactComponent as Random } from "assets/icons/randomIcon.svg";
+import { ReactComponent as Today } from "assets/icons/todayIcon.svg";
 import classNames from "classnames";
 import "./Controls.css";
 
@@ -35,7 +35,6 @@ const Controls = ({ randomQuoteDate, onRandomClick, onTodaysQuoteClick }) => {
       </div>
       <div
         className={classNames("todayButton", {
-          disableTodaysQuoteButton,
           disabledColor: disableTodaysQuoteButton,
         })}
         onClick={() => {

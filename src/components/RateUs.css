@@ -1,0 +1,64 @@
+.rateUsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rateUsContainer .rateUsText {
+  font-weight: normal;
+  color: var(--drawer-content-font-color);
+  font-size: 14px;
+  margin: 0 12px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.rateUsLink:hover :is(.rateUsContainer svg path, .rateUsText) {
+  fill: var(--hover-button-color);
+  color: var(--hover-button-color);
+  transition: 0.25s;
+}
+
+.infoContainer a:hover h2 {
+  transition: 0.25s;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 15px;
+  right: 150px;
+  animation: fromBottom 1s forwards;
+}
+
+.rateUsBackground {
+  background: var(--rate-us-bg-color);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.rateUsBackground :is(.rateUsText, svg path) {
+  color: var(--drawer-bg-color);
+  fill: var(--drawer-bg-color);
+  transition: 0.25s;
+}
+
+.rateUsLink:hover .rateUsBackground {
+  background: var(--rate-us-bg-color-hover);
+}
+
+.rateUsLink:hover
+  :is(.rateUsBackground svg path, .rateUsBackground .rateUsText) {
+  fill: var(--drawer-bg-color);
+  color: var(--drawer-bg-color);
+}
+
+@keyframes fromBottom {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ReactComponent as SGSignature } from "../assets/icons/sadhguruSignature.svg";
-import SadhguruDefaultImage from "../assets/sadhguru.jpg";
+import { ReactComponent as SGSignature } from "assets/icons/sadhguruSignature.svg";
+import SadhguruDefaultImage from "assets/sadhguru.jpg";
 import "./QuoteCard.css";
 import classNames from "classnames";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";

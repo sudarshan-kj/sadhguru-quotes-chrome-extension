@@ -98,16 +98,6 @@ h1 {
   color: var(--hover-button-color);
 }
 
-.infoContainer a:hover h2 {
-  color: var(--hover-button-color);
-  transition: 0.25s;
-}
-
-a:hover .rateUsContainer svg path {
-  fill: var(--hover-button-color);
-  transition: 0.25s;
-}
-
 .sidenav .closebtn {
   position: absolute;
   top: 0;
@@ -134,18 +124,6 @@ a:hover .rateUsContainer svg path {
   left: 12px;
   font-size: 12px;
   color: rgb(133, 133, 133);
-}
-.rateUsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.rateUsContainer h2 {
-  color: var(--drawer-content-font-color);
-  font-weight: normal;
-  font-size: 14px;
-  margin: 0 12px;
 }
 
 .copyrightAndRateUs p {

@@ -8,7 +8,6 @@ import authAxios from "./utils/auth";
 import Controls from "./components/Controls";
 import SideDrawer from "./components/SideDrawer";
 import classNames from "classnames";
-import ToggleSwitch from "./components/ToggleSwitch";
 import { useSemiPersistentState } from "./hooks";
 import keys from "./utils/keys";
 import CryptoJS from "crypto-js";
@@ -30,6 +29,7 @@ import {
 import { getVersion } from "./utils/chromeUtils";
 import Settings from "./components/Settings";
 import SkewedDiagonal from "./components/SkewedDiagonal";
+import RateUs from "./components/RateUs";
 
 date.plugin(ordinal);
 const datePattern = date.compile("MMMM DDD, YYYY");
@@ -244,6 +244,36 @@ function App() {
     dispatchQuotes({ type: "SUCCESS", payload: quotesData.today });
   };
 
+  useEffect(() => {
+    const randomClicks = quotesMetaData.clicks.random;
+    if (randomClicks) {
+      if (randomClicks > 30 && !quotesMetaData.rateUs.spOrCfd) {
+        setQuotesMetaData((prev) => {
+          return {
+            ...prev,
+            rateUs: {
+              show: true,
+              spOrCfd: false,
+            },
+          };
+        });
+      }
+    }
+  }, [quotesMetaData.clicks.random]);
+
+  const handleRateUsClick = () => {
+    setQuotesMetaData((prev) => {
+      return {
+        ...prev,
+        rateUs: {
+          show: false,
+          //shownPreviouslyOrClickedFromDrawer
+          spOrCfd: true,
+        },
+      };
+    });
+  };
+
   const getPublishdedDate = () => {
     if (quote.isError) return "Infinity";
     if (quote.isLoading || !quote.publishedDate) return "Please wait...";
@@ -294,11 +324,17 @@ function App() {
             metaData={quotesMetaData}
           />
           <SideDrawer
+            onClickRateUsDrawer={handleRateUsClick}
             version={quotesMetaData.version}
             isOpen={isDrawerOpen}
             handleDrawer={handleDrawer}
           />
           <Toast />
+          <RateUs
+            onClick={handleRateUsClick}
+            visible={quotesMetaData.rateUs.show}
+            showOnBottom={quotesMetaData.rateUs.show}
+          />
         </div>
       </div>
     </div>

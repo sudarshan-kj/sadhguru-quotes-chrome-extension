@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Settings.module.css";
-import { ReactComponent as SettingsIcon } from "../assets/icons/settingsIcon.svg";
+import { ReactComponent as SettingsIcon } from "assets/icons/settingsIcon.svg";
 import ToggleSwitch from "./ToggleSwitch";
 
 const Settings = ({

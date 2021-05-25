@@ -30,21 +30,16 @@
   cursor: pointer;
 }
 
-.randomButton:hover svg path,
-.todayButton:hover svg path {
+:is(.randomButton:hover, .todayButton:hover) svg path {
   fill: var(--hover-button-color);
 }
 
-.disabledColor svg path,
-.disabledColor:hover svg path {
+:is(.disabledColor, .disabledColor:hover) svg path {
   fill: var(--disabled-color);
 }
 
 .disabledColor,
 .disabledColor:hover {
-  color: var(--disabled-color);
-}
-
-.disableTodaysQuoteButton:hover {
   cursor: unset;
+  color: var(--disabled-color);
 }

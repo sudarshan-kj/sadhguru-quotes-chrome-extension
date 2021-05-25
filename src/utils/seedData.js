@@ -18,5 +18,6 @@ module.exports = {
     theme: "",
     showRandomQuote: false,
     version: "",
+    rateUs: { show: false, spOrCfd: false },
   },
 };
