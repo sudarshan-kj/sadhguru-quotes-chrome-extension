@@ -12,7 +12,7 @@
   transition: 0.4s;
 }
 
-@media screen and (max-height: 550px) {
+@media screen and (max-height: 650px) {
   .skewedDiagonal {
     top: -70%;
   }
