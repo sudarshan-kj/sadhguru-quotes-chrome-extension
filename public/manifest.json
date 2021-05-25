@@ -1,22 +1,26 @@
 {
   "name": "Sadhguru Quotes",
-  "description" : "A quote from Sadhguru on every new tab",
-  "version": "1.1",
+  "description": "A quote from Sadhguru on every new tab",
+  "version": "1.2",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
   },
-  "chrome_url_overrides" : {
+  "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "author": "Isha Foundation",
   "action": {
-    "default_icon": {"16" :"sg-icon-16x16.png", "48": "sg-icon-48x48.png", "128" : "sg-icon-128x128.png"},
+    "default_icon": {
+      "16": "sg-icon-16x16.png",
+      "48": "sg-icon-48x48.png",
+      "128": "sg-icon-128x128.png"
+    },
     "default_title": "A quote from Sadhguru on every new tab",
     "default_popup": "index.html"
   },
-"display": "fullscreen",
-"icons": {"128" : "sg-icon-128x128.png"},
+  "display": "fullscreen",
+  "icons": { "128": "sg-icon-128x128.png" },
   "commands": {
     "_execute_action": {
       "suggested_key": {
