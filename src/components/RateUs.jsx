@@ -6,24 +6,29 @@ import classNames from "classnames";
 
 const RateUs = ({ visible = false, showOnBottom = false, onClick }) => {
   return (
-    <a
-      className="rateUsLink"
-      href={config.CHROME_EXT_URL}
-      target="_blank"
-      rel="noreferrer"
-      onClick={onClick}
+    <div
+      className={classNames({
+        rateUsHidden: !visible,
+        rateUsFixed: showOnBottom,
+      })}
     >
-      <div
-        className={classNames("rateUsContainer", {
-          hidden: !visible,
-          rateUsBackground: showOnBottom,
-          fixed: showOnBottom,
-        })}
+      <a
+        className="rateUsLink"
+        href={config.CHROME_EXT_URL}
+        target="_blank"
+        rel="noreferrer"
+        onClick={onClick}
       >
-        <RateUsIcon />
-        <h2 className="rateUsText">Rate Us</h2>
-      </div>
-    </a>
+        <div
+          className={classNames("rateUsContent", {
+            rateUsWithBgVariant: showOnBottom,
+          })}
+        >
+          <RateUsIcon />
+          <h2 className="rateUsText">Rate Us</h2>
+        </div>
+      </a>
+    </div>
   );
 };
 

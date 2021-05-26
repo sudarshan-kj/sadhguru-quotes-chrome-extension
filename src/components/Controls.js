@@ -4,23 +4,14 @@ import { ReactComponent as Today } from "assets/icons/todayIcon.svg";
 import classNames from "classnames";
 import "./Controls.css";
 
-const Controls = ({ randomQuoteDate, onRandomClick, onTodaysQuoteClick }) => {
-  const [disableTodaysQuoteButton, setDisableTodaysQuoteButton] =
-    useState(false);
-
-  const checkIfTodaysQuote = useCallback(() => {
-    const today = new Date();
-    const nextTriggerDate = new Date(randomQuoteDate);
-    nextTriggerDate.setHours(nextTriggerDate.getHours() + 24);
-    return today < nextTriggerDate;
-  }, [randomQuoteDate]);
-
-  useEffect(() => {
-    checkIfTodaysQuote()
-      ? setDisableTodaysQuoteButton(true)
-      : setDisableTodaysQuoteButton(false);
-  }, [checkIfTodaysQuote]);
-
+const Controls = ({
+  onRandomClick,
+  onTodaysQuoteClick,
+  disableTodaysButtonInit = true,
+}) => {
+  const [disableTodaysQuoteButton, setDisableTodaysQuoteButton] = useState(
+    disableTodaysButtonInit
+  );
   return (
     <div className="controlsContainer">
       <div

@@ -22,7 +22,7 @@ const QuoteCard = ({ publishedDate, quoteImage, children }) => {
         />
         <div
           className={classNames("loadingImageSpinner", {
-            hidden: !isImageLoading,
+            imageSpinnerHidden: !isImageLoading,
           })}
         >
           <Loader

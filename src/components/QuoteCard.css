@@ -37,7 +37,7 @@
   color: var(--date-color);
 }
 
-.hidden {
+.imageSpinnerHidden {
   visibility: hidden;
 }
 

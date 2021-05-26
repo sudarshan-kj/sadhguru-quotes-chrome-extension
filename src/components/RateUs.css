@@ -1,21 +1,12 @@
-.rateUsContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.rateUsHidden {
+  display: none;
 }
 
-.rateUsContainer .rateUsText {
-  font-weight: normal;
-  color: var(--drawer-content-font-color);
-  font-size: 14px;
-  margin: 0 12px;
+.rateUsLink {
+  text-decoration: none;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
-.rateUsLink:hover :is(.rateUsContainer svg path, .rateUsText) {
+.rateUsLink:hover :is(.rateUsContent svg path, .rateUsText) {
   fill: var(--hover-button-color);
   color: var(--hover-button-color);
   transition: 0.25s;
@@ -25,40 +16,55 @@
   transition: 0.25s;
 }
 
-.fixed {
+.rateUsFixed {
+  /*We are using fixed and not absolute, since absolute would bring in a vertical scrollbar when the animation is triggered*/
   position: fixed;
-  bottom: 15px;
   right: 150px;
+  /*Mentioning bottom here is not needed since the animation ends with the 'forwards' keyword*/
   animation: fromBottom 1s forwards;
 }
 
-.rateUsBackground {
+.rateUsContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rateUsContent .rateUsText {
+  font-weight: normal;
+  color: var(--drawer-content-font-color);
+  font-size: 14px;
+  margin: 0 12px;
+}
+
+.rateUsWithBgVariant {
   background: var(--rate-us-bg-color);
   padding: 20px;
   border-radius: 5px;
 }
 
-.rateUsBackground :is(.rateUsText, svg path) {
+.rateUsLink:hover .rateUsWithBgVariant {
+  background: var(--rate-us-bg-color-hover);
+  transition: 0.5s;
+}
+
+.rateUsWithBgVariant :is(.rateUsText, svg path) {
   color: var(--drawer-bg-color);
   fill: var(--drawer-bg-color);
   transition: 0.25s;
 }
 
-.rateUsLink:hover .rateUsBackground {
-  background: var(--rate-us-bg-color-hover);
-}
-
 .rateUsLink:hover
-  :is(.rateUsBackground svg path, .rateUsBackground .rateUsText) {
+  :is(.rateUsWithBgVariant svg path, .rateUsWithBgVariant .rateUsText) {
   fill: var(--drawer-bg-color);
   color: var(--drawer-bg-color);
 }
 
 @keyframes fromBottom {
   from {
-    transform: translateY(100px);
+    bottom: -100px;
   }
   to {
-    transform: translateY(0px);
+    bottom: 15px;
   }
 }

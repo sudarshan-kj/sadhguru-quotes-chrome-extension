@@ -13,7 +13,7 @@ import {
 import config from "../config";
 
 const QUOTE =
-  "Install this free Chrome Extension to get a daily quote from Sadhguru on every new tab in your Chrome browser.";
+  "Install this free Chrome Extension to get a daily inspirational quote from Sadhguru on every new tab in your Chrome browser.";
 const HASHTAGS = ["SadhguruQuotes", "SGQChromeExtension"];
 
 export const FollowUsSocialIcons = () => (

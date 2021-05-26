@@ -291,11 +291,6 @@ function App() {
     <div>
       <SkewedDiagonal />
       <div className="mainContainer">
-        {/* <ToggleSwitch
-          callback={handleToggleTheme}
-          initState={quotesMetaData.theme === "dark" ? true : false}
-          updateState={quotesMetaData.theme !== ""}
-        /> */}
         <div
           className={classNames("app", {
             shrink: isDrawerOpen,
@@ -318,10 +313,9 @@ function App() {
             onToggleRandomQuoteOnNewTab={handleToggleShowRandomQuote}
           />
           <Controls
-            randomQuoteDate={quote.publishedDate}
             onTodaysQuoteClick={handleTodaysQuoteClick}
             onRandomClick={handleRandomClick}
-            metaData={quotesMetaData}
+            disableTodaysButtonInit={!quotesMetaData.showRandomQuote}
           />
           <SideDrawer
             onClickRateUsDrawer={handleRateUsClick}
