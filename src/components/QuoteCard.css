@@ -24,7 +24,7 @@
 }
 
 .sg-image {
-  height: 370px;
+  height: 420px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -47,8 +47,9 @@ button {
 }
 
 .quoteTextContainer {
-  max-width: 700px;
-  min-height: 200px;
+  max-width: 800px;
+  min-height: 250px;
+  line-height: 140%;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -64,12 +65,23 @@ button {
   width: 120px;
 }
 
+@media screen and (max-width: 2000px) {
+  .sg-image {
+    height: 370px;
+  }
+  .quoteTextContainer {
+    min-height: 200px;
+    max-width: 700px;
+  }
+}
+
 @media screen and (max-width: 1600px) {
   .sg-image {
     height: 280px;
   }
   .quoteTextContainer {
     min-height: 150px;
+    max-width: 700px;
   }
 }
 
@@ -79,6 +91,7 @@ button {
   }
   .quoteTextContainer {
     min-height: 150px;
+    max-width: 700px;
   }
 }
 
