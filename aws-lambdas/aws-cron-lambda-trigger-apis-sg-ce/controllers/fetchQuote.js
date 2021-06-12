@@ -35,7 +35,7 @@ async function getQuotesFromTwitter() {
 
       const quoteText = element.text;
       const split = quoteText.replace(/\n/g, "").split("#SadhguruQuotes");
-      const text = split[0].trim();
+      const text = split[0].trim().replace(/#/g, "");
       const link = split[1].trim();
 
       const quoteObj = {
