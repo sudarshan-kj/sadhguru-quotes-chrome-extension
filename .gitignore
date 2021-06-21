@@ -7,6 +7,7 @@
 build.crx
 build.pem
 twitter.txt
+desktop.ini
 
 # testing
 /coverage
