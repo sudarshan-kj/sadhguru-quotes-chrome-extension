@@ -10,6 +10,8 @@
 
 [data-theme="light"] {
   --primary-bg-color: #f5f0e5;
+  --primary-bg-color-gradient-start: #fffaef;
+  --primary-bg-color-gradient-end: #afa796;
   --secondary-bg-color: #ffffff;
   --text-color: #28231e;
   --dropup-menu-bg-color: #ffffff;
@@ -21,6 +23,8 @@
 
 [data-theme="dark"] {
   --primary-bg-color: #28231e;
+  --primary-bg-color-gradient-start: #1f1914;
+  --primary-bg-color-gradient-end: #3a3530;
   --secondary-bg-color: #0d0d0d;
   --text-color: #b8b4ac;
   --dropup-menu-bg-color: #464038;
