@@ -37,6 +37,11 @@ const datePattern = date.compile("MMMM DDD, YYYY");
 //The following variable is used to remove the transition fromt the .app div when the theme is being changed
 let changingTheme = false;
 console.log(`%c 🛆 Sadhguru Quotes 🛆`, "font-size: 1rem; color: #f0671d;");
+console.log(
+  `%c Made with Love ❤️ in 🇮🇳 - KJ`,
+  "font-size: 0.5rem; color: #f0671d;"
+);
+
 function App() {
   const [quote, dispatchQuotes] = useReducer(quoteReducer, quoteInitSeedData);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
